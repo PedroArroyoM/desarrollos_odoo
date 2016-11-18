@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+
+		<!-- <record model="ir.ui.view" id="wizard_calc_form_view">
+			<field name="name">Function Calc</field>
+			<field name="model">function.calc</field>
+			<field name="arch" type="xml">
+				<form string="Function Calc">
+					<separator string="hola"/>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_wizard_calc_form_view">
+			<field name="name">Function Calc wizard</field>
+			<field name="res_model">function.calc</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="wizard_calc_form_view"/>
+			<field name="target">new</field>
+			<field name="help" type="html"> <p class="oe_view_nocontent_create"> 
+				Click here to create a new job or remove the filter on "In Recruitment" to 
+				recruit for an on hold job. </p> <p> Define job position profile and manage 
+				recruitment in a context of a particular job: print interview survey, define 
+				number of expected new employees, and manage its recruitment pipe </p> </field>
+		</record> -->
+
+
+
+
+
+		<record model="ir.ui.view" id="crm_case_tree_view_job">
+			<field name="name">Function Calc</field>
+			<field name="model">function.calc</field>
+			<field name="arch" type="xml">
+				<tree string="Function Calc">
+					<field name="name" />
+					<!-- <field name="python_expression" /> -->
+					<!-- <field name="variable_ids" invisible="1" /> -->
+				</tree>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="function_calc_form_view">
+			<field name="name">function.calc.form</field>
+			<field name="model">function.calc</field>
+			<field name="view_type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+							<field name="python_expression" />
+							<field name="variable_ids" />
+								
+						
+						</group>
+					</sheet>
+
+				</form>
+			</field>
+
+		</record>
+
+		<record model="ir.ui.view" id="function_calc_wizard_form_view">
+			<field name="name">function.calc.wizard.form</field>
+			<field name="model">funcion.calc.wizard</field>
+			<field name="view_type">form</field>
+			<field name="arch" type="xml">
+				<form  version="7.0">
+					<separator string='Calculo de cantidad' />
+						
+								
+							<group><field name="function_id" options='{"no_open": True}' /></group>
+							
+				
+					
+					<footer>
+						<button name='action_calcquantity' type='object' string='Calcular cantidad' />
+						o
+						<button special="cancel" string="Cancelar"/>
+                        
+					</footer>
+
+				</form>
+			</field>
+
+		</record>
+
+		<record model="ir.ui.view" id="function_calc_var_tree_view">
+			<field name="name">Function Calc Variable</field>
+			<field name="model">function.calc.var</field>
+			<field name="arch" type="xml">
+				<tree string="Variables">
+					<field name="name" />
+					<field name="value" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="function_calc_var_form_view">
+			<field name="name">function.calc.var.form</field>
+			<field name="model">function.calc.var</field>
+
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+
+						<group>
+							<field name="name" />
+							<field name="value" />
+							<field name="function_id" />
+						</group>
+					</sheet>
+
+				</form>
+			</field>
+		</record>
+
+
+		<menuitem name="Recruitment" id="menu_hr_recruitment_recruitment"
+			parent="hr.menu_hr_configuration" sequence="40" />
+
+		<record model="ir.actions.act_window" id="action_function_calc">
+			<field name="name">Function Calc</field>
+			<field name="res_model">function.calc</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<!-- <field name="help" type="html"> <p class="oe_view_nocontent_create"> 
+				Click here to create a new job or remove the filter on "In Recruitment" to 
+				recruit for an on hold job. </p> <p> Define job position profile and manage 
+				recruitment in a context of a particular job: print interview survey, define 
+				number of expected new employees, and manage its recruitment pipe </p> </field> -->
+		</record>
+		<menuitem id="menu_function_calc_parent" name="Function Calc"
+			parent="base.menu_base_config" />
+
+		<menuitem id="menu_function_calc" name="Configure function calc"
+			parent="menu_function_calc_parent" action="action_function_calc" />
+
+	</data>
+</openerp>
