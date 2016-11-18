@@ -1,0 +1,2 @@
+import OpenERPClient
+import OpenERPObject

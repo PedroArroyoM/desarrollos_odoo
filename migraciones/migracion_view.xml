@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+       
+			<record id="migrate_params_tree_view" model="ir.ui.view">
+			<field name="name">migrate.params.tree</field>
+			<field name="model">migrate.params</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="bbdd" />
+					<field name="user" />
+					<field name="pwd" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="migrate_params_form_view" model="ir.ui.view">
+			<field name="name">migrate.params.form</field>
+			<field name="model">migrate.params</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="OpenERP Version 7" version="7.0">
+					<header>
+
+					</header>
+					<sheet>
+						<div class="oe_right oe_button_box" name="button_box">
+                        	<button name="act_initial_configuration" string="Load initial configuration" type="object" class="oe_highlight" />
+                        	<button name="act_pos_movement" string="Load POS Movement" type="object" class="oe_highlight" />
+                        	
+                        </div>
+					
+						<group colspan="4" col="4">
+							<field name="name" />
+							<field name="bbdd" />
+							<field name="user" />
+							<field name="pwd" />
+						</group>
+						<group colspan="4" col="4">
+							<field name="parity_ids" />
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="migrate_params_search_view" model="ir.ui.view">
+			<field name="name">migrate.params.search</field>
+			<field name="model">migrate.params</field>
+			<field name="arch" type="xml">
+				<search string="Search">
+					<field name="name" string="Name" filter_domain="[()]" />
+					<separator />
+					<filter string="Open" name="open" domain="[('state','!=','cancel')]"
+						help="Open" />
+
+					<group expand="0" string="Group By...">
+						<filter string="Name" domain="[]" context="{'group_by':'name'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_migrate_params_tree_view">
+			<field name="name">migrate.params</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">migrate.params</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="migrate_params_search_view" />
+			<!-- <field name="domain">[('field_name','condition',criteria)]</field> -->
+			<field name="context">{}</field>
+		</record>
+		
+		
+		<menuitem id="migrate" name="Migracion"/>
+		<menuitem id="migrate_paramss" name="Parametros" parent="migrate" />
+		<menuitem name="Parametros" id="exe_migrate_paramss" parent="migrate_paramss" sequence="3" action="action_migrate_params_tree_view"/>
+
+
+
+		<record id="migrate_parity_tree_view" model="ir.ui.view">
+			<field name="name">migrate.parity.tree</field>
+			<field name="model">migrate.parity</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="model" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="migrate_parity_form_view" model="ir.ui.view">
+			<field name="name">migrate.parity.form</field>
+			<field name="model">migrate.parity</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="OpenERP Version 7" version="7.0">
+					<header>
+
+					</header>
+					<sheet>
+						<group colspan="4" col="4">
+							<field name="name" />
+							<field name="model" />
+
+						</group>
+						<group colspan="4" col="4">
+							<field name="migrated_id" />
+							<field name="current_id" />
+							<field name="migrate_params_id" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="migrate_parity_search_view" model="ir.ui.view">
+			<field name="name">migrate.parity.search</field>
+			<field name="model">migrate.parity</field>
+			<field name="arch" type="xml">
+				<search string="Search">
+					<field name="name" string="Name" filter_domain="[()]" />
+					<separator />
+					<filter string="Products" name="product" domain="[('model','!=','product.product')]"
+						help="Migrated products" />
+
+					<group expand="0" string="Group By...">
+						<filter string="Model" domain="[]" context="{'group_by':'model'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_migrate_parity_tree_view">
+			<field name="name">Migrate Parity</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">migrate.parity</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="migrate_parity_search_view" />
+			<!-- <field name="domain">[('field_name','condition',criteria)]</field> -->
+			<field name="context">{}</field>
+		</record>
+
+		<menuitem name="Paridades" id="exe_migrate_parity" parent="migrate_paramss" sequence="3" action="action_migrate_parity_tree_view"/>
+
+
+		
+		</data>
+</openerp>
