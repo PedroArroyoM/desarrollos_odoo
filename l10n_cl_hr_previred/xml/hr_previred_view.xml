@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+			<record id="hr_previred_tree_view" model="ir.ui.view">
+			<field name="name">hr.previred.tree</field>
+			<field name="model">hr.previred</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+		
+		<record id="hr_previred_form_view" model="ir.ui.view">
+			<field name="name">hr.previred.form</field>
+			<field name="model">hr.previred</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="OpenERP Version 7" version="7.0">
+					<header>
+						<!-- <button name="action_button" string="Button Name" type="object"
+							class="oe_highlight" /> -->
+						<field name="state" widget="statusbar"/>
+					</header>
+					<sheet>
+					
+						<group>
+							<field name="name" />
+						</group>
+					
+					
+						<group colspan="4" col="4">
+							<field name="previred_line_ids" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="hr_previred_search_view" model="ir.ui.view">
+			<field name="name">hr.previred.search</field>
+			<field name="model">hr.previred</field>
+			<field name="arch" type="xml">
+				<search string="Search">
+					<field name="name" string="Name" filter_domain="[()]" />
+					<separator />
+					<filter string="Open" name="open" domain="[('state','!=','done')]"
+						help="Open" />
+
+					<group expand="0" string="Group By...">
+						<filter string="Name" domain="[]" context="{'group_by':'name'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_previred_tree_view">
+			<field name="name">hr.previred</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.previred</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="hr_previred_search_view" />
+			<!-- <field name="domain">[('field_name','condition',criteria)]</field> -->
+			<field name="context">{}</field>
+		</record>
+		
+		<!-- <menuitem name="Previred report" id="menu_previred_report" parent="hr_payroll.menu_hr_root_payroll" sequence="3" action="action_hr_previred_tree_view"/>
+		 -->
+		</data>
+</openerp>

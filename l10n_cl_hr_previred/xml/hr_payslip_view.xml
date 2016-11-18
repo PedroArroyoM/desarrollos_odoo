@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF8"?>
+<openerp>
+    <data>
+    
+    
+            <act_window name="Previred Computation Details"
+            context="{'default_slip_id': active_id,'search_default_slip_id': active_id}"
+            res_model="hr.previred.line"
+            src_model="hr.previred"
+            id="act_previred_lines"/>
+            
+            
+    	<record id="hr_payslip_view_form" model="ir.ui.view">
+			<field name="name">hr.payslip.view.form.inherit</field>
+			<field name="model">hr.payslip</field>
+			<field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+			<field name="arch" type="xml">
+	            <data>
+
+	                 <xpath expr="//button[@string='Payslip Computation Details']" position="after">
+	                     <button name="%(act_previred_lines)d" string="Previred Computation Details" type="action"/>
+	                 </xpath>
+	            </data>
+		    </field>
+		</record>
+		
+
+    </data>
+</openerp>

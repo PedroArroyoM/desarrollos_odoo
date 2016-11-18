@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+       
+			<record id="hr_previred_config_tree_view" model="ir.ui.view">
+			<field name="name">hr.previred.config.tree</field>
+			<field name="model">hr.previred.config</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="hr_previred_config_form_view" model="ir.ui.view">
+			<field name="name">hr.previred.config.form</field>
+			<field name="model">hr.previred.config</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+			<form string="AFP" version="7.0">
+				<sheet>
+		            	<div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                            
+                        </div>
+                        <group>
+                        	<field name="taxable_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+                        	<field name="family_assigment_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+							<field name="family_assigment_retro_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+							<field name="family_reassigment_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+							<field name="young_worker_app_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+							
+                        </group>
+                        <div class="oe_right oe_button_box" name="button_box">
+                            <!-- Put here related buttons -->
+                        </div>
+		                <notebook>
+                            <page string="Information of AFP">
+                                <group>
+                                	<group string="Clasification">
+                        				<field name="afp_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+                        				<field name="sis_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="count_2_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="taxable_income_repl_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="contribution_repl_indemty_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+							
+										<field name="drudgery_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+							
+                        			</group>
+                        			
+                        			<group string="Voluntary data Affiliate">
+                        			
+                        				<field name="count_2_voluntary_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="afp_voluntary_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										
+                        			</group>
+                        			<group string="Indivitual APV data">
+                        			    <field name="apvi_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="agreed_deposits_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+                        			
+                        			</group>
+                        			<group string="Collective APV data">
+                        				<field name="apvc_employer_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="apvc_employee_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+							
+                        			</group>
+                        			
+                        		</group>
+                        	</page>
+                        	<page string="IPS-ISL-FONASA health data">
+                        		<group>
+                        			<group string="IPS-ISL-FONASA" >
+										<field name="fonasa_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="ips_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="isl_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="isl_family_assigment_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="eviction_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<!-- <field name="15386_rule_ids" widget="many2many_tags" placeholder="Tags..."/> -->
+                        			</group>
+                        			<group string="Health" >
+                        				<field name="compulsory_isapre_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="voluntary_isapre_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="ges_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+                        			</group>
+                        		</group>
+                        	</page>
+                        	<page string="CCAF - Mutual - AFC data">
+                        		<group>
+                        			<group string="CCAF" >
+                        				<field name="ccaf_personal_credit_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="ccaf_dental_disc_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="ccaf_leasing_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="ccaf_life_insurance_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="ccaf_not_affiliated_quote_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="ccaf_others_disc1_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="ccaf_others_disc2_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+									</group>
+                        			<group string="Mutual">
+                        				<field name="mutual_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+							
+                        			</group>
+                        			<group string="AFC">
+                        				<field name="afc_employer_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+										<field name="afc_employee_rule_ids" widget="many2many_tags" placeholder="Tags..."/>
+							
+                        			</group>
+                        			
+                        		</group>
+                        	</page>
+                        	
+                        </notebook>
+                        <group >
+                        	<field name="positions" />
+                        </group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="hr_previred_config_search_view" model="ir.ui.view">
+			<field name="name">hr.previred.config.search</field>
+			<field name="model">hr.previred.config</field>
+			<field name="arch" type="xml">
+				<search string="Search">
+					<field name="name" string="Name" filter_domain="[()]" />
+					<separator />
+					<filter string="Open" name="open" domain="[('state','!=','cancel')]"
+						help="Open" />
+
+					<group expand="0" string="Group By...">
+						<filter string="Name" domain="[]" context="{'group_by':'name'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_previred_config_tree_view">
+			<field name="name">hr.previred.config</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.previred.config</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="hr_previred_config_search_view" />
+			<!-- <field name="domain">[('field_name','condition',criteria)]</field> -->
+			<field name="context">{}</field>
+		</record>
+		
+		<menuitem name="Previred config" id="menu_hr_previred_config" parent="hr.menu_hr_configuration" sequence="3" action="action_hr_previred_config_tree_view"/>
+    
+     
+		</data>
+</openerp>

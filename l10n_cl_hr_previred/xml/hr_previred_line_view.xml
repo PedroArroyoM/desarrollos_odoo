@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+       
+			<record id="hr_previred_line_tree_view" model="ir.ui.view">
+			<field name="name">hr.previred.line.tree</field>
+			<field name="model">hr.previred.line</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name='rut' />
+					<field name='dv' />
+					<field name='a_paterno' />
+					<field name='a_materno' />
+					<field name='nombres' />
+					<field name='tipo_pago' />
+					<field name='desde' />
+					<field name='hasta' />
+					<field name='regimen' />
+					<field name='dias_trabajados' />
+					<field name='tipo_linea' />
+					<field name='cod_mov_personal' />
+					
+				</tree>
+			</field>
+		</record>
+
+		<record id="hr_previred_line_form_view" model="ir.ui.view">
+			<field name="name">hr.previred.line.form</field>
+			<field name="model">hr.previred.line</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="OpenERP Version 7" version="7.0">
+					<header>
+						<button name="action_button" string="Button Name" type="object"
+							class="oe_highlight" />
+					</header>
+					<sheet>
+						<group>
+							<group string = "Datos trabajador">
+								<fields name='rut' />
+								<fields name='dv' />
+								<fields name='a_paterno' />
+								<fields name='a_materno' />
+								<fields name='nombres' />
+								<fields name='sexo' />
+								<fields name='nacionalidad' />
+								<fields name='tipo_pago' />
+								<fields name='desde' />
+								<fields name='hasta' />
+								<fields name='regimen' />
+								<fields name='tipo_trabajador' />
+								<fields name='dias_trabajados' />
+								<fields name='tipo_linea' />
+								<fields name='cod_mov_personal' />
+								<fields name='desde' />
+								<fields name='hasta' />
+								<fields name='tramo_asign_fam' />
+								<fields name='ncargas_simples' />
+								<fields name='ncargas_maternales' />
+								<fields name='ncargas_invalidas' />
+								<fields name='asign_fam' />
+								<fields name='asign_fam_retro' />
+								<fields name='reint_cargas_fam' />
+								<fields name='sub_trab_joven' />
+							</group>
+							<group string = "Datos de la AFP">
+								<fields name='codigo_afp' />
+								<fields name='imponible_afp' />
+								<fields name='cot_afp' />
+								<fields name='cot_sis' />
+								<fields name='cuenta_2_afp' />
+								<fields name='imponible_sustit_afp' />
+								<fields name='tasa_pactada_sustit' />
+								<fields name='aporte_indemn_sustit' />
+								<fields name='n_periodos_sustit' />
+								<fields name='desde_sustit' />
+								<fields name='hasta_sustit' />
+								<fields name='puesto_trab_pesado' />
+								<fields name='porc_cot_trab_pesado' />
+								<fields name='cot_trab_pesado' />
+							</group>
+							<group string="Datos Ahorro Previsional Voluntario Individual">
+								<fields name='cod_inst_apvi' />
+								<fields name='num_de_contrato_apvi' />
+								<fields name='forma_de_pago_apvi' />
+								<fields name='cot_apvi' />
+								<fields name='cot_depo_conv' />
+							</group>
+							<group string="Datos Ahorro Previsional Voluntario Colectivo">
+								<fields name='cod_inst_apvc' />
+								<fields name='ncontrato_apvc' />
+								<fields name='forma_pago_apvc' />
+								<fields name='cot_trab_apvc' />
+								<fields name='cot_empl_apvc' />		
+							</group>
+							<group string="Datos Afiliado Voluntario">
+								<fields name='rut_af_voluntario' />
+								<fields name='dv_af_voluntario' />
+								<fields name='apellido_paterno' />
+								<fields name='apellido_materno' />
+								<fields name='nombres' />
+								<fields name='cod_mov_personal' />
+								<fields name='desde' />
+								<fields name='hasta' />
+								<fields name='cod_afp' />
+								<fields name='monto_cap_vol' />
+								<fields name='monto_ahorro_vol' />
+								<fields name='nperiodos_de_cotizacion' />							
+							</group>
+							<group string="Datos IPS - ISL - FONASA">
+								<fields name='cod_excaja_regimen' />
+								<fields name='tasa_cot_excajas_prevision' />
+								<fields name='imponible_ips' />
+								<fields name='cot_obl_ips' />
+								<fields name='imponible_desahucio' />
+								<fields name='cod_excaja_regimen_desahucio' />
+								<fields name='tasa_cot_desahucio_excajas_prevision' />
+								<fields name='cot_desahucio' />
+								<fields name='cot_fonasa' />
+								<fields name='cot_acc_trab_isl' />
+								<fields name='bono_ley' />
+								<fields name='desc_cargas_fam_isl' />
+								<fields name='bono_gobierno' />		
+							</group>
+							<group string="Datos Salud">
+								<fields name='cod_inst_salud' />
+								<fields name='num_fun' />
+								<fields name='imponible_isapre' />
+								<fields name='moneda_plan_isapre' />
+								<fields name='cot_pactada' />
+								<fields name='cot_obligatoria_isapre' />
+								<fields name='cot_adicional_voluntaria' />
+								<fields name='ges' />
+							</group>
+							<group string="Datos Caja de Compensación">
+								<fields name='cod_ccaf' />
+								<fields name='imponible_ccaf' />
+								<fields name='cred_pers_ccaf' />
+								<fields name='desc_dental_ccaf' />
+								<fields name='desc_leasing' />
+								<fields name='desc_seg_vida_ccaf' />
+								<fields name='otros_desc_ccaf' />
+								<fields name='ccaf_no_afil_isapres' />
+								<fields name='cargas_fam_ccaf' />
+								<fields name='otros_desc_ccaf_1' />
+								<fields name='otros_desc_ccaf_2' />
+								<fields name='bonos_gobierno' />
+								<fields name='codigo_de_suc' />
+							</group>
+							<group string="Datos Mutualidad">
+								<fields name='cod_mutual' />
+								<fields name='imponible_mutual' />
+								<fields name='cot_mutual' />
+								<fields name='suc_pago_mutual' />
+							</group>
+							<group string="Datos Administradora de Seguro de Cesantía">
+								<fields name='imponible_seg_ces' />
+								<fields name='trab_seg_ces' />
+								<fields name='empl_seg_ces' />
+							</group>
+							<group string="Datos Pagador de Subsidios">
+								<fields name='rut_pagadora_subsidio' />
+								<fields name='dv_pagadora_subsidio' />
+							</group>
+							<group string="Otros Datos de la Empresa">
+							<fields name='centro_de_costos' />
+						</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="hr_previred_line_search_view" model="ir.ui.view">
+			<field name="name">hr.previred.line.search</field>
+			<field name="model">hr.previred.line</field>
+			<field name="arch" type="xml">
+				<search string="Search">
+					<field name="name" string="Name" filter_domain="[()]" />
+					<separator />
+					<filter string="Open" name="open" domain="[('state','!=','cancel')]"
+						help="Open" />
+
+					<group expand="0" string="Group By...">
+						<filter string="Name" domain="[]" context="{'group_by':'name'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_previred_line_tree_view">
+			<field name="name">hr.previred.line</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.previred.line</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="hr_previred_line_search_view" />
+			<!-- <field name="domain">[('field_name','condition',criteria)]</field> -->
+			<field name="context">{}</field>
+		</record>
+		
+		</data>
+</openerp>
