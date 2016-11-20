@@ -30,9 +30,7 @@
     "category": "Custom Module",
     "website": "",
     "complexity": "normal",
-    "summary": "
-	Agrega opciones de calculos de cantidades totales en base a altos, anchos y cantidades.
-	",
+    "summary": "Agrega opciones de calculos de cantidades totales en base a altos, anchos y cantidades.",
     "data": [
 #        "security/product_pricelist_rules_security.xml",
         "views/product_view.xml",

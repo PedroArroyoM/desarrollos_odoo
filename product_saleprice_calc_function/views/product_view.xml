@@ -138,6 +138,29 @@
 
 		<menuitem id="menu_function_calc" name="Configure function calc"
 			parent="menu_function_calc_parent" action="action_function_calc" />
+			
+			
+        <record model="ir.ui.view" id="sale_order_form_view_calc_f">
+            <field name="name">sale.order.form.calc_f</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath
+                        expr="//field[@name='order_line']/tree//field[@name='sequence']"
+                        position="after">
+                        <field name="width" />
+                        <field name="height" />
+                        <field name="cuantify" />
+                        <button string="Add Entry" icon="STOCK_ADD" name="action_add_entry" type="object"/>
+                    </xpath>
+                    
+                </data>
+            </field>
+        </record>			
+				
+
+
 
 	</data>
 </openerp>
